@@ -11,10 +11,11 @@ function getText() {
   // parte 2 - incializamos el metodo fetch y apuntamos al endpoint que queremos usar
   fetch("sample.txt")
     // parte 3 - recibimos info sin limpieza del formato que aputnamos con el metodo fetch() y lo pasamaos mediante una funcion con la promesa .then() para sacar la respuesta mediante un argumento/parametro que lo limpiamos/editamos con algun  metodo en especifico que en este caso es el metodo text() - RESOLVE()
-    .then((response) => response.text())
-    // parte 4 - una vez recibimos la info a traves del metodo de "limpieza", aprovechamos otra promesa para inyectar la info del texto dentro del UI mediante DOM manipulation. RESOLVE()
+    .then((response) => {
+      response.text();
+    })
     .then((infoFromText) => {
-      document.querySelector("#output").innerHTML = infoFromText;
+      document.querySelector("#samane").innerHTML = infoFromText;
     })
     // parte 5 - si existe algun error de connection con el archivo en el fetch parametrizamos el error mediante el REJECT de la promesa - REJECT()
     .catch((error) => {
@@ -37,7 +38,7 @@ function getJson() {
         </ul>
         `;
       });
-      document.querySelector("#output").innerHTML = userData;
+      document.querySelector("#samane").innerHTML = userData;
     })
     .catch((error) => {
       console.log(error);
@@ -46,35 +47,36 @@ function getJson() {
 
 // Calling an external API
 function getHere() {
-  fetch("https://jsonplaceholder.typicode.com/photos?_start=0&_end=30")
+  fetch("https://jsonplaceholder.typicode.com/posts")
     .then((response) => response.json())
     .then((res) => {
       let externalApiData = "";
 
-      res.forEach((photo) => {
+      res.forEach((post) => {
         externalApiData += `
         <div class="card" style="width: 18rem">
         <img
             class="card-img-top"
-            src="${photo.url}"
+            src="https://www.cruillabarcelona.com/wp-content/uploads/2022/02/RubenBlades.jpeg"
             alt="Ruben Fucking Blades aka ruben blade's"
         />
         <div class="card-body">
-            <h5 class="card-title">${photo.title}</h5>
+            <h5 class="card-title">${post.title}</h5>
             <p class="card-text">
-                ${photo.userId}
+                ${post.body}
             </p>
         </div>
         </div>
         `;
       });
 
-      document.querySelector("#output").innerHTML = externalApiData;
+      document.querySelector("#samane").innerHTML = externalApiData;
     })
     .catch((error) => console.log(error));
 }
 
 // Enviar mediante el fetch method un post usando un objeto dentro del fetch como segundo parametro que dentro del mismo pasaremos cierta informacion, esta informacion es asociada con los HTTP methods, [CREATE, READ, UPDATE, DELETE]. Vamos a enviar la informacion del formulario al API falso y veremos como se registra el ID correspondiente a la sequencia de objetos que nos presenta el API.
+
 // function addPost(preventForm) {
 //   preventForm.preventDefault(); // Omite que se envie la info del formulario
 
@@ -98,19 +100,21 @@ function getHere() {
 //   body.value = "";
 // }
 
-// <div class="card" style="width: 18rem">
-// <img
-//     class="card-img-top"
-//     src="${photo.thumbnailUrl}"
-//     alt="Ruben Fucking Blades aka ruben blade's"
-// />
-// <div class="card-body">
-//     <h5 class="card-title">${photo.title}</h5>
-//     <p class="card-text">
-//         ${photo.body}
-//     </p>
-//     <p class="card-text">
-//         ${photo.userId}
-//     </p>
-// </div>
-// </div>
+{
+  /* <div class="card" style="width: 18rem">
+<img
+    class="card-img-top"
+    src="${photo.thumbnailUrl}"
+    alt="Ruben Fucking Blades aka ruben blade's"
+/>
+<div class="card-body">
+    <h5 class="card-title">${photo.title}</h5>
+    <p class="card-text">
+        ${photo.body}
+    </p>
+    <p class="card-text">
+        ${photo.userId}
+    </p>
+</div>
+</div> */
+}
