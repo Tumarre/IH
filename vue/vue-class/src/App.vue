@@ -4,6 +4,7 @@ import Textbinding from "./components/vueBasics/TextBinding.vue";
 import TextDirective from "./components/vueBasics/TextDirective.vue";
 import HtmlDirective from "./components/vueBasics/HtmlDirective.vue";
 import AttributeBinding from "./components/vueBasics/AttributeBinding.vue";
+import ConditionalRendering from "./components/vueBasics/ConditionalRendering.vue";
 </script>
 
 <template>
@@ -18,6 +19,7 @@ import AttributeBinding from "./components/vueBasics/AttributeBinding.vue";
     <TextDirective />
     <HtmlDirective />
     <AttributeBinding />
+    <ConditionalRendering />
   </main>
 </template>
 

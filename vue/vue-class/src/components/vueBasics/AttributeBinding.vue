@@ -84,6 +84,16 @@
       >
         Inline Styling through an object approach
       </h2>
+
+      <!-- Dynamically bind an object fetched from the  script tag -->
+      <h2 v-bind:style="objectProperty">
+        Object added to style from the script tag
+      </h2>
+
+      <h2 v-bind:style="[objectArrayCase1, objectArrayCase2]">
+        Injecting an array of objects inside the style tag via binding through
+        the script tag
+      </h2>
     </div>
   </div>
 </template>
@@ -102,6 +112,21 @@ const isSoldOut = ref(false);
 
 const textColor = ref("red");
 const textSize = ref(20);
+
+const objectProperty = ref({
+  color: "orange",
+  fontSize: "25px",
+  textDecoration: "underline",
+});
+
+const objectArrayCase1 = ref({
+  color: "yellow",
+  fontSize: "25px",
+  textDecoration: "underline",
+});
+const objectArrayCase2 = ref({
+  marginLeft: "2rem",
+});
 </script>
 
 <style scoped>
