@@ -1,5 +1,5 @@
 <template>
-  <h1>COnditional Rendering using v-if, v-else-if, v-else directives :)</h1>
+  <h1>Conditional Rendering using v-if, v-else-if, v-else directives :)</h1>
   <div id="conditional-rendring-part-1">
     <!-- Simple Approach using a v-if  directive first -->
     <h2 v-if="number === 0">The number is Zero</h2>
@@ -38,6 +38,12 @@
       <h2>Lil John</h2>
     </template>
   </div>
+
+  <div id="conditional-rendering-part-4">
+    <!-- Using a v-show directive -->
+    <h2 v-show="showElement">Using v-show directive</h2>
+    <h2 v-if="showElement">Using a v-if directive</h2>
+  </div>
 </template>
 
 <script setup>
@@ -46,6 +52,8 @@ import { ref } from "vue";
 const number = ref(-8);
 
 const display = ref(true);
+
+const showElement = ref(false);
 </script>
 
 <style></style>
