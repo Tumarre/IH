@@ -31,6 +31,60 @@
         - Binding a class attribute
       </h2>
     </div>
+
+    <div id="binding-conditional-attributes">
+      <h1>Using a conditional to bind class</h1>
+
+      <!-- Conditionally binding a class attribute to an element depending if the dataProperty = true || false  -->
+      <h2 v-bind:class="isPromoted && 'promoted'">Promoted Movies</h2>
+
+      <!-- Operador ternario - Ternary Operator -->
+      <!-- This checks for both conditions -->
+      <!-- Breakdown del ternario, el ternario esta compuesto por 2 condiciones. la primera condicion se asigna mediante apuntando a la propiedad booleanica, que quermeos apuntar, ej[isSoldOut] seguido por el signo de interrogacion que validad si esa propieda es verdadera, si esa condicion es correcta, se ejecuta la clase ene ste ejemplo en particular para asignarle la clase [sold-out]. Si la condicion es falsa, se ejecutala 2nda parte del ternario que se especifica despues de los 2 puntos [:] seguida por la clase que queremos asignalre mientras la condicion sea falsa.  -->
+
+      <h2 v-bind:class="isSoldOut ? 'sold-out' : 'available'">Avatar</h2>
+
+      <!-- Binding an array of classes  -->
+      <h2 v-bind:class="['promoted', 'underline']">
+        Binding an Array of classes
+      </h2>
+
+      <!-- Conditionally attaching classes by combing expressions within the array -->
+      <!-- 1st. This is 2 block array with two different conditions that at the end of the 2nd condition we are binding a class if the booleanic variable "isSoldOut" is true/false.  -->
+      <h2
+        v-bind:class="[
+          isPromoted && 'promoted',
+          isSoldOut ? 'sold-out' : 'available',
+        ]"
+      >
+        Array of Conditional classes
+      </h2>
+      <!-- 2st. This is 2 block array with two different conditions that at the end of the 2nd condition we are NOT binding a class if the booleanic variable "isSoldOut" is false. This way we only bind the 1st  block of the conditonal array -->
+      <h2
+        v-bind:class="[isPromoted && 'promoted', isSoldOut ? 'sold-out' : '']"
+      >
+        Array of Conditional classes
+      </h2>
+      <!-- 3rd. This is 2 block array with a condition that checks for only one instance of the booleanic value  on both sections of the array -->
+      <h2 v-bind:class="[isPromoted && 'promoted', isSoldOut && 'available']">
+        Array of Conditional classes - XAVI
+      </h2>
+    </div>
+
+    <div id="binding-styles">
+      <h1>Binding Styles</h1>
+      <!-- Dynamically binding inline attributes by using an object directly into the HTML -->
+
+      <h2
+        v-bind:style="{
+          textDecoration: 'underline',
+          color: textColor,
+          fontSize: textSize + 'px',
+        }"
+      >
+        Inline Styling through an object approach
+      </h2>
+    </div>
   </div>
 </template>
 
@@ -41,6 +95,13 @@ let headingIdExample = ref("ramons-heading");
 let isDisabled = ref(false);
 const status = ref("danger");
 const twoClassesBinding = ref("bindingExtraClasses");
+
+const isPromoted = ref(true);
+
+const isSoldOut = ref(false);
+
+const textColor = ref("red");
+const textSize = ref(20);
 </script>
 
 <style scoped>
@@ -61,5 +122,24 @@ const twoClassesBinding = ref("bindingExtraClasses");
 
 .bindingExtraClasses {
   color: yellow;
+}
+
+.promoted {
+  font-style: italic;
+  color: blue;
+}
+
+.sold-out {
+  text-decoration: line-through;
+  color: red;
+}
+
+.available {
+  color: green;
+  text-decoration: underline;
+}
+
+.underline {
+  font-size: 16px;
 }
 </style>

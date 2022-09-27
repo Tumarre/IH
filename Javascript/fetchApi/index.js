@@ -76,3 +76,28 @@ function getHere() {
 }
 
 // Enviar mediante el fetch method un post usando un objeto dentro del fetch como segundo parametro que dentro del mismo pasaremos cierta informacion, esta informacion es asociada con los HTTP methods, [CREATE, READ, UPDATE, DELETE]. Vamos a enviar la informacion del formulario al API falso y veremos como se registra el ID correspondiente a la sequencia de objetos que nos presenta el API.
+
+function addPost(preventForm) {
+  preventForm.preventDefault(); // Omite que se envie la info del formulario si los inputs estan vacios.
+
+  // Vamos a traernos el valor de lo que el titulo + post
+  let title = document.querySelector("#title").value;
+  let body = document.querySelector("#body").value;
+
+  // Usemos el fetch() para empujar la info al ENDPOINT
+  fetch("https://jsonplaceholder.typicode.com/comments", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+      Accept: "application/json, text/plain",
+    },
+    body: JSON.stringify({ title: title, body: body }),
+  })
+    .then((response) => response.json())
+    .then((formData) => {
+      console.log(formData);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
