@@ -6,7 +6,7 @@
 defineProps({
   birthPlace: {
     type: String,
-    default: "Citizen of the damn worlddd",
+    default: "Citizen of the damn world",
   },
 });
 </script>

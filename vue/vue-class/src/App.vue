@@ -13,15 +13,11 @@ import Methods from "./components/vueBasics/Methods.vue";
 <template>
   <header>
     <div class="wrapper">
-      <HelloWorld
-        msg="My Short bioss"
-        img="https://c.static-nike.com/a/images/w_1920,c_limit/mdbgldn6yg1gg88jomci/image.jpg"
-        imgDescription="Nike Logo"
-      />
+      <HelloWorld msg="Texto generico de mi prop" imgDescription="Nike Logo" />
     </div>
   </header>
 
-  <main>
+  <!-- <main>
     <WelcomeItem />
     <hr />
     <Textbinding />
@@ -37,7 +33,7 @@ import Methods from "./components/vueBasics/Methods.vue";
     <IteratingElements />
     <hr />
     <Methods />
-  </main>
+  </main> -->
 </template>
 
 <style>

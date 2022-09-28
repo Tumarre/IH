@@ -1,5 +1,5 @@
 <template>
-  <h1>Working with methods</h1>
+  <h1>Working with methods || Functions</h1>
   <div id="bigote-syntax">
     <h2>{{ 1000 * 2 }}</h2>
     <h2>{{ 200 + 50 - 400 }}</h2>

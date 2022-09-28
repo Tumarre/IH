@@ -5,7 +5,7 @@
 <script setup>
 defineProps({
   age: {
-    type: Number,
+    type: [Number, String],
   },
 });
 </script>

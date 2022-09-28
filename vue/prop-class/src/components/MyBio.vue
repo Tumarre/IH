@@ -1,13 +1,15 @@
 <template>
-  <h1>{{ name }}</h1>
-  <h2>{{ age }}</h2>
-  <h3>{{ birthplace }}</h3>
-  <h4>{{ currentLocation }}</h4>
-  <hr />
-  <NameComp :name="name" />
-  <AgeComp :age="age" />
-  <BirthplaceComp :birthplace="birthPlace" />
-  <CurrentLocation :currentLocation="currentLocation" />
+  <div>
+    <h1>{{ name }}</h1>
+    <h2>{{ age }}</h2>
+    <h3>{{ birthplace }}</h3>
+    <h4>{{ currentLocation }}</h4>
+    <hr id="divider" />
+    <NameComp :name="name" />
+    <AgeComp :age="age" />
+    <BirthplaceComp :birthplace="birthPlace" />
+    <CurrentLocation :currentLocation="currentLocation" />
+  </div>
 </template>
 
 <script setup>
@@ -34,7 +36,11 @@ defineProps({
 </script>
 
 <style>
-hr {
-  margin: 2rem 0;
+#divider {
+  @apply my-4 border;
+}
+
+div {
+  @apply flex justify-center flex-col items-center;
 }
 </style>

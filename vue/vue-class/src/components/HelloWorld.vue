@@ -7,7 +7,7 @@ defineProps({
   img: {
     type: String,
     default:
-      " https://graffica.info/wp-content/uploads/2022/04/Sin-uiiug-1200x900.png",
+      "https://graffica.info/wp-content/uploads/2022/04/Sin-uiiug-1200x900.png",
   },
   imgDescription: {
     type: String,
@@ -18,23 +18,17 @@ defineProps({
     required: true,
     default: "My written text",
   },
+  backgroundColor: {
+    type: String,
+    default: "blue",
+  },
 });
-
-const post = {
-  id: 1,
-  title: "My Journey with Vue",
-};
 </script>
 
 <template>
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
-    <img :src="img" :alt="imgDescription" />
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
+    <img :src="img" v-bind:alt="imgDescription" />
   </div>
 </template>
 
@@ -58,6 +52,11 @@ h3 {
   width: 24rem;
   height: 24rem;
   object-fit: contain;
+}
+
+.greetings div {
+  width: 250px;
+  height: 250px;
 }
 
 @media (min-width: 1024px) {
