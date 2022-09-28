@@ -43,7 +43,7 @@ const bands = ref([
     name="Diego Z"
     age="31"
     birthplace="Valencia"
-    currentLocation="Barcelona, España"
+    currentLocation="yoooo"
   />
 </template>
 
