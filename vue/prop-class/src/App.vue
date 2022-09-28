@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import BandCard from "./components/BandCard.vue";
+import MyBio from "./components/MyBio.vue";
 
 const bands = ref([
   {
@@ -29,7 +30,7 @@ const bands = ref([
 </script>
 
 <template>
-  <div class="background">
+  <!-- <div class="background">
     <BandCard
       v-for="(band, index) in bands"
       :key="index"
@@ -37,7 +38,13 @@ const bands = ref([
       :bandSong="band.popularSong"
       :bandSongInfo="band.popularSongInfo"
     />
-  </div>
+  </div> -->
+  <MyBio
+    name="Diego Z"
+    age="31"
+    birthplace="Valencia"
+    currentLocation="Barcelona, España"
+  />
 </template>
 
 <style>
