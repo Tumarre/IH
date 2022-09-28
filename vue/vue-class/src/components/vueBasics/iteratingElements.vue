@@ -58,11 +58,33 @@
         </li>
       </ul>
     </div>
+    <hr />
+    <div id="conditionally-rendering-ListItems-using-v-for">
+      <!-- <ul>
+        <li
+          v-for="artist in hiphopArtists"
+          :key="artist"
+          v-if="artist == 'Ms. lauryn Hill'"
+        >
+          {{ artist }}
+        </li>
+        <li v-else>There is no artist with that name...</li>
+      </ul> -->
+
+      <template v-for="artist in hiphopArtists" :key="artist">
+        <h2 v-if="artist === 'Ms. lauryn Hill' || artist === 'De La Soul'">
+          {{ artist }}
+        </h2>
+        <h2 v-else>There is no artists under than name</h2>
+      </template>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+
+const andreu = ref(true);
 
 const footballTeams = ref([
   "Fc Barcelona",
@@ -104,6 +126,15 @@ const myInfo = ref({
   school: "Ironhack",
   course: "FE Vue",
 });
+
+const hiphopArtists = ref([
+  "Ms. lauryn Hill",
+  "A Tribe Called Quest",
+  "De La Soul",
+  "Ms. lauryn Hill",
+]);
+
+console.log(hiphopArtists);
 </script>
 
 <style>
