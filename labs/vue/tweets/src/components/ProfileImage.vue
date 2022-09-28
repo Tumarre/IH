@@ -6,7 +6,8 @@
 defineProps({
   image: {
     type: String,
-    default: "https://i.imgur.com/9yw1Fyw.jpg",
+    default:
+      "https://cdns-images.dzcdn.net/images/artist/a423dd42b7394eeacc882be8ac633eee/500x500.jpg",
   },
   imageAlt: {
     type: String,
