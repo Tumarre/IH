@@ -1,71 +1,122 @@
 <template>
-  <div id="computed-part-one">
-    <h1>Guitarrist - {{ firstName }} {{ lastName }}</h1>
-    <h1>Computed Property - Guitarrist {{ favGuitarrist }}</h1>
+  <div>
+    <div id="computed-one">
+      <h1>Guitarrist - {{ firstName }}{{ lastName }}</h1>
+      <h1>Computed Guitarrist - {{ favGuitarrist }}</h1>
+      <!-- <h2>
+      Total - {{ items.reduce((total, curr) => (total = total + curr.price), 0) }}
+      </h2> -->
+      <button @click="changeFavGuittarrist">Change Favorite Guitarrist</button>
+      <button @click="items.push({ id: 4, title: 'Keyboard', price: 50 })">
+        Add item
+      </button>
 
-    <button @click="changeFavGuitarrist">Change Favorite Guitarrist</button>
-  </div>
-  <div id="computedpart-two-diff-between-methods&computed">
-    <button @click="items.push({ id: 5, title: 'coffee', price: 400 })">
-      Add Item
-    </button>
-
-    <h1>Using a conventional method - {{ getTotal() }}</h1>
-    <h1>Using a computed method - {{ total }}</h1>
-    <div>
-      <input type="text" v-model="country" />
+      <h2>Computed Total - {{ total }}</h2>
+      <h2>Method Total - {{ getTotal() }}</h2>
     </div>
-  </div>
-  <div id="computed-part-3-using-vFor-directive">
-    <h1>Using a conventional method</h1>
-    <template v-for="item in items" :key="item.id">
-      <h1 v-if="item.price < 100">{{ item.title }} - {{ item.price }}</h1>
-    </template>
-
-    <h1>Using a computed method</h1>
-    <template v-for="(item, index) in computedItemsList" :key="index">
-      <h1>{{ item.title }} - {{ item.price }}</h1>
-    </template>
+    <div id="computed-v-for">
+      <template v-for="item in items" :key="item.id">
+        <!-- <h2 v-if="item.price > 40">{{ item.title }} - {{ item.price }}</h2> -->
+        <h2 v-if="item.id === 1">{{ item.title }} - {{ item.price }}</h2>
+      </template>
+      <h2>Expensive items:</h2>
+      <h2 v-for="item in expensiveItems" :key="item.id">
+        {{ item.title }} - {{ item.price }}
+      </h2>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
-
+import { ref, computed } from "vue";
 const firstName = ref("Gustavo");
 const lastName = ref("Cerati");
 const items = ref([
-  { id: 1, title: "Monitor Portatil", price: 200 },
-  { id: 2, title: "Airpods", price: 100 },
-  { id: 3, title: "A comfy sweater", price: 50 },
-  { id: 4, title: "Blue Light Glasses", price: 80 },
+  {
+    id: 1,
+    title: "TV",
+    price: 100,
+  },
+  {
+    id: 2,
+    title: "Phone",
+    price: 200,
+  },
+  {
+    id: 3,
+    title: "Laptop",
+    price: 300,
+  },
 ]);
 
-const country = ref("");
-
-function changeFavGuitarrist() {
-  favGuitarrist2 = "John Frusciante";
-}
-
 function getTotal() {
-  conosle.log("getTotal function - not computed");
+  console.log("getTotal method");
   return items.value.reduce((total, curr) => (total = total + curr.price), 0);
 }
 
+function changeFavGuittarrist() {
+  favGuitarrist2.value = "John Mayer";
+}
+
+/*   function addKeyboard() {
+    items.value.push({ id: 4, title: 'Keyboard', price: 50 });
+  }; */
+
 const favGuitarrist = computed(() => {
-  return `${firstName} ${lastName}`;
+  return `${firstName.value} ${lastName.value}`;
 });
 
 const favGuitarrist2 = computed({
+  //  READ
   get() {
-    return `${firstName} ${lastName}`;
+    return `${firstName.value} ${lastName.value}`;
   },
+  // WRITE, UPDATE, DELETE
   set(value) {
-    const name = value.split(" ");
-    this.firstName = name[0];
-    this.lastName = name[1];
+    const names = value.split(" ");
+    firstName.value = names[0];
+    lastName.value = names[1];
   },
+});
+
+/*   const fullName = computed({
+  // getter
+  get() {
+    return firstName.value + ' ' + lastName.value
+  },
+  // setter
+  set(newValue) {
+    // Note: we are using destructuring assignment syntax here.
+    [firstName.value, lastName.value] = newValue.split(' ')
+  }
+}) */
+
+const total = computed(() => {
+  console.log("total computed property");
+  return items.value.reduce((total, curr) => (total = total + curr.price), 0);
+});
+
+const expensiveItems = computed(() => {
+  return items.value.filter((item) => item.price > 100);
 });
 </script>
 
-<style></style>
+<style>
+h1 {
+  font-size: 16px;
+}
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+</style>

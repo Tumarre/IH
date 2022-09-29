@@ -17,7 +17,7 @@
       <div id="form-v-model-visbility">
         <pre>{{ JSON.stringify(formValues, null, 1) }}</pre>
       </div>
-      <form @submit.prevent="FUNCION - QUE - NO - EXISTE - TODAVIA">
+      <form @submit.prevent="submitForm">
         <div id="user-input-formName-data-ref">
           <label for="name">Name</label>
           <input
@@ -153,7 +153,16 @@
             type="number"
             id="profile-age"
             v-model.number="formValues.profileAge"
+            @keyup.enter="submitForm"
           />
+
+          <!-- Using another type of event to submit form via @keyup.enter.  "enter" in this case is a vue form control modifier that enables the form submission witout having to use a CTA. -->
+          <!-- <input
+            type="number"
+            id="profile-age"
+            v-model.number="formValues.profileAge"
+            @keyup.enter="submitForm"
+          /> -->
         </div>
         <button>Submit Form</button>
       </form>
@@ -177,6 +186,10 @@ const formValues = ref({
   yearsOfExperience: "",
   profileAge: null,
 });
+
+function submitForm() {
+  console.log("Form Values", formValues);
+}
 </script>
 
 <style scoped>
