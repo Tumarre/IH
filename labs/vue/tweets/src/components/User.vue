@@ -19,15 +19,15 @@ defineProps({
 
 <template>
   <!-- Iteration 1 - preRefactoring -->
-  <!-- <span className="user">
-    <span className="name">{{ user.name }}</span>
-    <span className="handle">{{ user.handle }}</span>
+  <!-- <span class="user">
+    <span class="name">{{ user.name }}</span>
+    <span class="handle">{{ user.handle }}</span>
   </span> -->
 
   <!-- Iteration 2 - postRefactoring -->
   <div class="top">
-    <span className="name">{{ user.name }}</span>
-    <span className="handle">{{ user.handle }}</span>
+    <span class="name">{{ user.name }}</span>
+    <span class="handle">{{ user.handle }}</span>
     <Timestamp v-bind:timestamp="timestamp" />
   </div>
 </template>

@@ -1,12 +1,12 @@
 <template>
-  <div className="tweet">
+  <div class="tweet">
     <ProfileImage
       :image="imageFather"
       :imageAlt="`${userFather.name} - profile image`"
     />
     <!-- Bypassing the use of a component to extract logic and inyecting the object user.image through the prop userFather -->
 
-    <!-- <img :src="userFather.image" className="profile" :alt="imageAlt" /> -->
+    <!-- <img :src="userFather.image" class="profile" :alt="imageAlt" /> -->
 
     <div class="body">
       <!-- Iteration 1 - preRefactoring -->

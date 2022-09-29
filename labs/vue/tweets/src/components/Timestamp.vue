@@ -1,5 +1,5 @@
 <template>
-  <span className="timestamp">{{ timestamp }}</span>
+  <span class="timestamp">{{ timestamp }}</span>
 </template>
 
 <script setup>

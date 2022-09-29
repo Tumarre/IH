@@ -1,5 +1,5 @@
 <template>
-  <img v-bind:src="image" className="profile" :alt="imageAlt" />
+  <img v-bind:src="image" class="profile" :alt="imageAlt" />
 </template>
 
 <script setup>

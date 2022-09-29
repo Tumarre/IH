@@ -1,5 +1,5 @@
 <template>
-  <div className="actions">
+  <div class="actions">
     <!-- Font Awesome icons -->
     <i class="far fa-comment"></i>
     <i class="fas fa-retweet"></i>
