@@ -1,5 +1,5 @@
 <template>
-  <div id="computed-explana">
+  <div id="computed-explanation">
     <p>
       Explanation
       <br />

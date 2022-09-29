@@ -10,6 +10,7 @@ import WelcomeItem from "./components/WelcomeItem.vue";
 import Methods from "./components/vueBasics/Methods.vue";
 import TwoWayBinding from "./components/vueBasics/TwoWayBinding.vue";
 import ComputedProperties from "./components/vueBasics/ComputedProperties.vue";
+import Watchers from "./components/vueBasics/Watchers.vue";
 </script>
 
 <template>
@@ -37,8 +38,10 @@ import ComputedProperties from "./components/vueBasics/ComputedProperties.vue";
     <Methods />
     <hr />
     <TwoWayBinding />
-    <hr /> -->
+    <hr />
     <ComputedProperties />
+    <hr /> -->
+    <Watchers />
   </main>
 </template>
 
