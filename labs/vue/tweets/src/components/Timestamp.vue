@@ -12,4 +12,7 @@ defineProps({
     },
   },
 });
+
+// Option 2 - not extending prop definition and info
+// defineProps(["timestamp"]);
 </script>

@@ -37,14 +37,16 @@ const tweets = ref([
 </script>
 
 <template>
-  <Tweet
-    v-for="(tweet, index) in tweets"
-    :key="index"
-    :message="tweet.message"
-    :timestamp="tweet.timestamp"
-    :user="tweet.user"
-    :image="tweet.user.image"
-  />
+  <div class="app">
+    <Tweet
+      v-for="(tweet, index) in tweets"
+      :key="index"
+      :messageFather="tweet.message"
+      :timestampFather="tweet.timestamp"
+      :userFather="tweet.user"
+      :imageFather="tweet.user.image"
+    />
+  </div>
 </template>
 
 <style>

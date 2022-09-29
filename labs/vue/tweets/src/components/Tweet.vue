@@ -1,50 +1,57 @@
-<script setup>
-import Actions from "./Actions.vue";
-import Message from "./Message.vue";
-import User from "./User.vue";
-import Timestamp from "./Timestamp.vue";
-import ProfileImage from "./ProfileImage.vue";
-
-defineProps({
-  message: {
-    type: String,
-  },
-  timestamp: {
-    type: String,
-  },
-  user: {
-    type: Object,
-  },
-  image: {
-    type: String,
-  },
-  imageAlt: {
-    Type: String,
-  },
-});
-</script>
-
 <template>
   <div className="tweet">
-    <!-- <ProfileImage :image="user.image" :imageAlt="user.name" /> -->
-    <ProfileImage :image="image" :imageAlt="`${user.name} - Profile Image`" />
-    <div className="body">
-      <div className="top">
-        <!-- Iteration 1 -->
-        <User :user="user" />
-        <Timestamp :timestamp="timestamp" />
+    <ProfileImage
+      :image="imageFather"
+      :imageAlt="`${userFather.name} - profile image`"
+    />
+    <!-- Bypassing the use of a component to extract logic and inyecting the object user.image through the prop userFather -->
 
-        <!-- Iteration 2 -->
-        <!-- <User :user="user" :timestamp="timestamp" /> -->
+    <!-- <img :src="userFather.image" className="profile" :alt="imageAlt" /> -->
+
+    <div class="body">
+      <!-- Iteration 1 - preRefactoring -->
+      <!-- <div class="top">
+        <User :user="userFather" />
+        <Timestamp :timestamp="timestampFather" />
+      </div> -->
+
+      <!-- Iteration 2 - postRefactoring -->
+      <div class="top">
+        <User :user="userFather" :timestamp="timestampFather" />
       </div>
-
-      <Message :message="message" />
+      <Message v-bind:message="messageFather" />
       <Actions />
     </div>
 
     <i class="fas fa-ellipsis-h"></i>
   </div>
 </template>
+
+<script setup>
+import Actions from "./Actions.vue";
+import Message from "./Message.vue";
+import Timestamp from "./Timestamp.vue";
+import User from "./User.vue";
+import ProfileImage from "./ProfileImage.vue";
+
+defineProps({
+  messageFather: {
+    type: String,
+  },
+  timestampFather: {
+    type: String,
+  },
+  userFather: {
+    type: Object,
+  },
+  imageFather: {
+    type: String,
+  },
+  imageAltFather: {
+    type: String,
+  },
+});
+</script>
 
 <style scoped>
 a {

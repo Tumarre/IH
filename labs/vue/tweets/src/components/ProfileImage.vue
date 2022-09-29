@@ -1,5 +1,5 @@
 <template>
-  <img :src="image" className="profile" :alt="imageAlt" />
+  <img v-bind:src="image" className="profile" :alt="imageAlt" />
 </template>
 
 <script setup>
@@ -11,6 +11,10 @@ defineProps({
   },
   imageAlt: {
     type: String,
+    default: "Snoop Dogg looking fly as hell!",
   },
 });
+
+// Option 2 - not extending prop definition and info
+// defineProps(["image", "imageAlt"]);
 </script>

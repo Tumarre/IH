@@ -8,7 +8,10 @@
 defineProps({
   message: {
     type: String,
-    default: "Some Generic Tweet about a Dog",
+    default: "Some Generic Tweet about a cute dog!",
   },
 });
+
+// Option 2 - not extending prop definition and info
+// defineProps(["message"]);
 </script>
