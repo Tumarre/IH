@@ -9,6 +9,7 @@ import IteratingElements from "./components/vueBasics/iteratingElements.vue";
 import WelcomeItem from "./components/WelcomeItem.vue";
 import Methods from "./components/vueBasics/Methods.vue";
 import TwoWayBinding from "./components/vueBasics/TwoWayBinding.vue";
+import ComputedProperties from "./components/vueBasics/ComputedProperties.vue";
 </script>
 
 <template>
@@ -34,8 +35,10 @@ import TwoWayBinding from "./components/vueBasics/TwoWayBinding.vue";
     <IteratingElements />
     <hr />
     <Methods />
-    <hr /> -->
+    <hr />
     <TwoWayBinding />
+    <hr /> -->
+    <ComputedProperties />
   </main>
 </template>
 

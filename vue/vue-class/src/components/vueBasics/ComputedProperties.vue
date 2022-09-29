@@ -1,29 +1,21 @@
 <template>
-  <div>
-    <div id="computed-one">
-      <h1>Guitarrist - {{ firstName }}{{ lastName }}</h1>
-      <h1>Computed Guitarrist - {{ favGuitarrist }}</h1>
-      <!-- <h2>
-      Total - {{ items.reduce((total, curr) => (total = total + curr.price), 0) }}
-      </h2> -->
-      <button @click="changeFavGuittarrist">Change Favorite Guitarrist</button>
-      <button @click="items.push({ id: 4, title: 'Keyboard', price: 50 })">
-        Add item
-      </button>
+  <div id="computed-explana">
+    <h2>
+      Explanation
+      <br />
+      Computed properties are also functions but they are different from
+      methods. They run only once per page load, and it will re-run only if any
+      of it’s dependent variable changes.
+    </h2>
+  </div>
 
-      <h2>Computed Total - {{ total }}</h2>
-      <h2>Method Total - {{ getTotal() }}</h2>
-    </div>
-    <div id="computed-v-for">
-      <template v-for="item in items" :key="item.id">
-        <!-- <h2 v-if="item.price > 40">{{ item.title }} - {{ item.price }}</h2> -->
-        <h2 v-if="item.id === 1">{{ item.title }} - {{ item.price }}</h2>
-      </template>
-      <h2>Expensive items:</h2>
-      <h2 v-for="item in expensiveItems" :key="item.id">
-        {{ item.title }} - {{ item.price }}
-      </h2>
-    </div>
+  <div id="example-1">
+    <!-- without using any type of computed properties -->
+    <p>Guitarrist - {{ firstName }} {{ lastName }}</p>
+
+    <!-- Using a computed property inside the function favGuitarrist -->
+    <p>Guitarrist - {{ favGuitarrist }}</p>
+    <button @click="changeFavGuitarrist">Change fav guitarrist</button>
   </div>
 </template>
 
@@ -31,43 +23,22 @@
 import { ref, computed } from "vue";
 const firstName = ref("Gustavo");
 const lastName = ref("Cerati");
-const items = ref([
-  {
-    id: 1,
-    title: "TV",
-    price: 100,
-  },
-  {
-    id: 2,
-    title: "Phone",
-    price: 200,
-  },
-  {
-    id: 3,
-    title: "Laptop",
-    price: 300,
-  },
-]);
 
-function getTotal() {
-  console.log("getTotal method");
-  return items.value.reduce((total, curr) => (total = total + curr.price), 0);
-}
+// basic template for computed function
+// const template = computed(() => {}) - Use for reference
 
-function changeFavGuittarrist() {
-  favGuitarrist2.value = "John Mayer";
-}
-
-/*   function addKeyboard() {
-    items.value.push({ id: 4, title: 'Keyboard', price: 50 });
-  }; */
-
+// Computed property arrowFunction
 const favGuitarrist = computed(() => {
   return `${firstName.value} ${lastName.value}`;
 });
 
+// regular function to trigger computedPropertyFunction and change the name of the guitarrist to something new!
+const changeFavGuitarrist = () => {
+  favGuitarrist2.value = "Eric Clapton";
+};
+
 const favGuitarrist2 = computed({
-  //  READ
+  // Monitors / READ
   get() {
     return `${firstName.value} ${lastName.value}`;
   },
@@ -79,26 +50,16 @@ const favGuitarrist2 = computed({
   },
 });
 
-/*   const fullName = computed({
-  // getter
-  get() {
-    return firstName.value + ' ' + lastName.value
-  },
-  // setter
-  set(newValue) {
-    // Note: we are using destructuring assignment syntax here.
-    [firstName.value, lastName.value] = newValue.split(' ')
-  }
-}) */
+// GET & SET inner functions
+// We are going to expand the use of a computedProperty by using their respective methods that are associated with such computedProperty. Which are getters & setters
+// get() - Its monitors for anything type of data that can change. We can read/watch/monitor
+//set() - Takes whatever we are monitoring and changes the data for us. We can either write, update, delete
 
-const total = computed(() => {
-  console.log("total computed property");
-  return items.value.reduce((total, curr) => (total = total + curr.price), 0);
-});
-
-const expensiveItems = computed(() => {
-  return items.value.filter((item) => item.price > 100);
-});
+// const functionUsingSetAndGetTemplate = computed({
+//   get() {},
+//   set() {}
+// })
+// A real example can be observed in line 40 function name "favGuitarrist2()"
 </script>
 
 <style>
@@ -118,5 +79,9 @@ li {
 }
 a {
   color: #42b983;
+}
+
+p {
+  font-size: 2rem;
 }
 </style>
