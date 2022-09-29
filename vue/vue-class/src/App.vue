@@ -8,17 +8,18 @@ import ConditionalRendering from "./components/vueBasics/ConditionalRendering.vu
 import IteratingElements from "./components/vueBasics/iteratingElements.vue";
 import WelcomeItem from "./components/WelcomeItem.vue";
 import Methods from "./components/vueBasics/Methods.vue";
+import TwoWayBinding from "./components/vueBasics/TwoWayBinding.vue";
 </script>
 
 <template>
-  <header>
+  <!-- <header>
     <div class="wrapper">
       <HelloWorld msg="Texto generico de mi prop" imgDescription="Nike Logo" />
     </div>
-  </header>
+  </header> -->
 
-  <!-- <main>
-    <WelcomeItem />
+  <main>
+    <!-- <WelcomeItem />
     <hr />
     <Textbinding />
     <hr />
@@ -33,7 +34,9 @@ import Methods from "./components/vueBasics/Methods.vue";
     <IteratingElements />
     <hr />
     <Methods />
-  </main> -->
+    <hr /> -->
+    <TwoWayBinding />
+  </main>
 </template>
 
 <style>
