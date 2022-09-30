@@ -56,6 +56,7 @@ const route = useRoute();
 const getCountryByAlphaCode = async () => {
   // variable to get the current route from the app
   const alpha3Code = route.params.alpha3Code;
+  console.log(alpha3Code);
 
   // variable to call async the api endpoint pointing to the specific country via its alpha3code
   const response = await fetch(
@@ -64,17 +65,17 @@ const getCountryByAlphaCode = async () => {
 
   // variable to store info from api and cleanUp it's JSON format with json() method.
   const finalResponse = await response.json();
-
-  // Asignar los valores correspondientes de la info del API a las variables reactivas que nos hemos definido arriba :)
+  console.log(finalResponse);
 
   countryInfo.value = finalResponse;
+  // Asignar los valores correspondientes de la info del API a la variable reactiva que nos hemos definido arriba :)
 
-  return { name, capital, borders, area, alpha2Code, countryInfo };
+  return { countryInfo };
 };
-
 //Usamos onMounted() hook para ejecutar la funcion getCountryByAlphaCode() antes de que se renderize el componente como tal para obtener la informacion de la api y poder plasmarla dentro de la UI
 onMounted(() => {
   getCountryByAlphaCode();
+  console.log("HOLA NIC ONMOUNTED");
 });
 
 // Usar un computed function para tener visbilidad o basicamente tener accesso a la ruta que nos da el programa para ejecutar en 1ra instancia el famoso alpha3Code
@@ -82,7 +83,8 @@ const countryCode = computed(() => {
   return route.params.alpha3Code;
 });
 
-//REMEMBER TO WRITE DEFINITION HERE
+//Our Spy our watch() monitors for any change within our component, this instance we are spying for the computed function stored in the variable countryCode on line 83. We monitor if we recieve a new alpha3Code via the computed function and we re-execute the function getCountryByAlphaCode. The argument newCountryCode is not being used in this function because we are just calling a function inside with the help of our spy/watcher.
+// newcCountryCode argument is not used here, we are leaving to provide an understandment that we are spying for the computed function above
 watch(countryCode, (newCountryCode) => {
   getCountryByAlphaCode();
 });
