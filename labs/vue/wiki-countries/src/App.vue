@@ -1,10 +1,11 @@
 <script setup>
+import { onMounted } from "vue";
 import NavBar from "./components/NavBar.vue";
 </script>
 
 <template>
-  <div className="app">
+  <div class="app">
     <NavBar />
-    <router-view />
+    <RouterView />
   </div>
 </template>

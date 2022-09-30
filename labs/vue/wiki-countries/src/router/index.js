@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import CountriesList from "../components/CountriesList.vue";
-import CountriesDetails from "../components/CountriesDetails.vue";
+import CountryDetails from "../components/CountryDetails.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,13 +10,13 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "list",
+      name: "Countries List",
       component: CountriesList,
       children: [
         {
-          path: "/list/:alpha3Code",
-          name: "details",
-          component: CountriesDetails,
+          path: "/country/:alpha3Code",
+          name: "Country Details",
+          component: CountryDetails,
         },
       ],
     },

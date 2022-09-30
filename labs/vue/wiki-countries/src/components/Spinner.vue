@@ -1,19 +1,16 @@
 <template>
-  <div class="d-flex flex-column">
-    <div class="d-flex justify-content-center mb-4">
-      <div class="spinner-border" role="status"></div>
-    </div>
-    <p class="text-center">{{ text }}</p>
+  <div class="d-flex flex-column align-items-center justify-content-center">
+    <div class="spinner-border text-primary mb-4" role="status"></div>
+    <p>{{ text }}</p>
   </div>
 </template>
 
-<script>
-export default {
-  name: "Spinner",
-  props: {
-    text: String,
+<script setup>
+defineProps({
+  text: {
+    type: String,
   },
-};
+});
 </script>
 
 <style></style>
