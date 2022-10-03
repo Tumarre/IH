@@ -17,9 +17,9 @@ snoopDoggDiv.innerHTML = `
  <img class="samane" src="https://cdns-images.dzcdn.net/images/artist/a423dd42b7394eeacc882be8ac633eee/500x500.jpg" alt="">
 `;
 
-// TO GET THE ELEMENTS USING CLASSES FROM DOM YOU CAN USE "getElementByClassName"
+// TO GET THE ELEMENTS USING CLASSES FROM DOM YOU CAN USE "getElementByclass"
 
-let biggieDiv = document.getElementsByClassName("biggie");
+let biggieDiv = document.getElementsByclass("biggie");
 console.log(biggieDiv);
 
 // TO GET THE ELEMENTS USING HTML TAGS FROM DOM YOU CAN USE "getElementsByTagName"
@@ -37,12 +37,12 @@ let hipHopDivs = document.querySelectorAll("#tupac, .outkast, .atcq, .biggie");
 console.log(hipHopDivs);
 
 // how to get the composition of a class using js
-console.log(biggiesDiv.className);
+console.log(biggiesDiv.class);
 console.log(biggiesDiv.classList);
 
 // Changing classes using js
 let atcquest = document.querySelector(".atcq");
-atcquest.className = "new-york";
+atcquest.class = "new-york";
 
 //Changing styles of a specific element
 let h1 = document.querySelector("h1");
@@ -62,8 +62,8 @@ const even = document.querySelectorAll("li:nth-child(even)");
 const odd = document.querySelectorAll("li:nth-child(odd)");
 
 // for (let i = 0; i < odd.length; i++) {
-//   odd[i].className = "bg-blue-500";
-//   even[i].className = "bg-red-500";
+//   odd[i].class = "bg-blue-500";
+//   even[i].class = "bg-red-500";
 // }
 
 let inputInfo = document.querySelector("input");
@@ -124,7 +124,7 @@ aleix.previousElementSibling.style.color = "blue";
 // create div
 let newDiv = document.createElement("div");
 //attach class
-newDiv.className = "deLaSoul";
+newDiv.class = "deLaSoul";
 //atttach id
 newDiv.id = "bigPun";
 // attach an attribute

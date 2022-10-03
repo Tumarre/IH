@@ -2579,12 +2579,12 @@ getJasmineRequireObj().matchersUtil = function(j$) {
       }
       return result;
     }
-    var className = Object.prototype.toString.call(a);
-    if (className != Object.prototype.toString.call(b)) {
+    var class = Object.prototype.toString.call(a);
+    if (class != Object.prototype.toString.call(b)) {
       diffBuilder.record(a, b);
       return false;
     }
-    switch (className) {
+    switch (class) {
       // Strings, numbers, dates, and booleans are compared by value.
       case '[object String]':
         // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
@@ -2674,7 +2674,7 @@ getJasmineRequireObj().matchersUtil = function(j$) {
     var size = 0;
     // Recursively compare objects and arrays.
     // Compare array lengths to determine if a deep comparison is necessary.
-    if (className == '[object Array]') {
+    if (class == '[object Array]') {
       var aLength = a.length;
       var bLength = b.length;
 
@@ -2693,7 +2693,7 @@ getJasmineRequireObj().matchersUtil = function(j$) {
       if (!result) {
         return false;
       }
-    } else if (className == '[object Map]') {
+    } else if (class == '[object Map]') {
       if (a.size != b.size) {
         diffBuilder.record(a, b);
         return false;
@@ -2716,7 +2716,7 @@ getJasmineRequireObj().matchersUtil = function(j$) {
         diffBuilder.record(a, b);
         return false;
       }
-    } else if (className == '[object Set]') {
+    } else if (class == '[object Set]') {
       if (a.size != b.size) {
         diffBuilder.record(a, b);
         return false;
@@ -2769,11 +2769,11 @@ getJasmineRequireObj().matchersUtil = function(j$) {
     }
 
     // Deep compare objects.
-    var aKeys = keys(a, className == '[object Array]'), key;
+    var aKeys = keys(a, class == '[object Array]'), key;
     size = aKeys.length;
 
     // Ensure that both objects contain the same number of properties before comparing deep equality.
-    if (keys(b, className == '[object Array]').length !== size) {
+    if (keys(b, class == '[object Array]').length !== size) {
       diffBuilder.record(a, b, objectKeysAreDifferentFormatter);
       return false;
     }

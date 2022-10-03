@@ -31,7 +31,7 @@
   },
   "jest-junit": {
     "suiteNameTemplate": "{filepath}",
-    "classNameTemplate": "{classname}",
+    "classTemplate": "{class}",
     "titleTemplate": "{title}"
   },
   "prettier": {

@@ -98,23 +98,23 @@ function removeProduct(event) {
 //   const cart = document.querySelector('tbody');
 
 //   const trProduct = document.createElement('tr');
-//   trProduct.className = 'product';
+//   trProduct.class = 'product';
 
 //   const tdName = document.createElement('td');
 //   const nameSpan = document.createElement('span');
-//   tdName.className = 'name';
+//   tdName.class = 'name';
 //   nameSpan.innerText = name;
 //   tdName.appendChild(nameSpan);
 
 //   const tdPrice = document.createElement('td');
-//   tdPrice.className = 'price';
+//   tdPrice.class = 'price';
 //   tdPrice.innerText = '€';
 //   const tdPriceContent = document.createElement('span');
 //   tdPriceContent.innerText = price;
 //   tdPrice.appendChild(tdPriceContent);
 
 //   const tdQuantity = document.createElement('td');
-//   tdQuantity.className = 'quantity';
+//   tdQuantity.class = 'quantity';
 //   const quantityInput = document.createElement('input');
 //   quantityInput.type = 'number';
 //   quantityInput.value = 0;
@@ -123,16 +123,16 @@ function removeProduct(event) {
 //   tdQuantity.appendChild(quantityInput);
 
 //   const tdSubtotal = document.createElement('td');
-//   tdSubtotal.className = 'subtotal';
+//   tdSubtotal.class = 'subtotal';
 //   tdSubtotal.innerText = '€';
 //   const subtotalSpan = document.createElement('span');
 //   subtotalSpan.innerText = 0;
 //   tdSubtotal.appendChild(subtotalSpan);
 
 //   const tdAction = document.createElement('td');
-//   tdAction.className = 'action';
+//   tdAction.class = 'action';
 //   const buttonAction = document.createElement('button');
-//   buttonAction.className = 'btn btn-remove';
+//   buttonAction.class = 'btn btn-remove';
 //   buttonAction.innerText = 'Remove';
 //   buttonAction.addEventListener('click', removeProduct);
 //   tdAction.appendChild(buttonAction);
@@ -185,7 +185,7 @@ function removeProduct(event) {
 //   const parent = document.getElementsByTagName('tbody')[0];
 
 //   const newNameProductRow = document.createElement('tr');
-//   newNameProductRow.className = 'product';
+//   newNameProductRow.class = 'product';
 
 //   const rowTemplate = `<td class="name">
 //   <span>${newName}</span>
@@ -203,7 +203,7 @@ function removeProduct(event) {
 
 //   newNameProductRow.innerHTML = rowTemplate;
 
-//   const removeEl = document.getElementsByClassName('btn-remove');
+//   const removeEl = document.getElementsByclass('btn-remove');
 //   for (let i = 0; i < removeEl.length; i++) {
 //     removeEl[i].addEventListener('click', removeProduct);
 //   }

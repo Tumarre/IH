@@ -30,7 +30,7 @@ const bands = ref([
 </script>
 
 <template>
-  <!-- <div class="background">
+  <div class="background">
     <BandCard
       v-for="(band, index) in bands"
       :key="index"
@@ -38,7 +38,7 @@ const bands = ref([
       :bandSong="band.popularSong"
       :bandSongInfo="band.popularSongInfo"
     />
-  </div> -->
+  </div>
   <MyBio
     name="Diego Z"
     age="31"

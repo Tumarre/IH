@@ -5,7 +5,7 @@
       <BandInfo :bandInfo="bandInfo" />
       <div class="p-5">
         <BandSong :bandSong="bandSong" />
-        <BandSongInfo :bandSongInfo="bandSongInfo" />
+        <BandSongInfo :bandSongInfo="bandSongInfo" @myFirstEmit="test" />
       </div>
     </div>
   </div>
@@ -23,6 +23,10 @@ const props = defineProps({
   bandSong: String,
   bandSongInfo: String,
 });
+
+function test() {
+  console.log("I am a emitted button");
+}
 </script>
 
 <style></style>
