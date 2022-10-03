@@ -1,8 +1,16 @@
-<template>
-  <div>hello</div>
-</template>
+<script setup>
+import Nav from "../components/Nav.vue";
+import Footer from "../components/Footer.vue";
+import NewTask from "../components/NewTask.vue";
+import TaskItem from "../components/TaskItem.vue";
+</script>
 
-<script setup></script>
+<template>
+  <Nav />
+  <NewTask />
+  <TaskItem />
+  <Footer />
+</template>
 
 <style></style>
 

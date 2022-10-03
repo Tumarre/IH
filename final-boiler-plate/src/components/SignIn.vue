@@ -12,7 +12,7 @@
       <input
         class=""
         type="email"
-        placeholder="dave@wuTangfinancial.com"
+        placeholder="susuusus@gmail.com"
         v-model="email"
         id="email"
       />
@@ -25,7 +25,7 @@
           class=""
           :type="passwordFieldType"
           onpaste="return false"
-          placeholder="************"
+          placeholder="*********"
           v-model="password"
           id="password"
         />
