@@ -11,8 +11,6 @@ You can add any CSS framework of your liking like tailwindCSS, Bootstrap, Materi
 ## Important
 This app is not setUp to be deployed to a production environment like vercel or netlify. 
 
-Friday on August 19 we will look at how can we deploy this app to Vercels ecosystem.
-
 
 ## Project Setup
 
