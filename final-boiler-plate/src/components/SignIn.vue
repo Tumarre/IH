@@ -3,6 +3,48 @@
   <PersonalRouter :route="route" :buttonText="buttonText" />
   <p>Time to build up the Final Project!</p>
   <p class="wu-text">Wu Tang Forever</p>
+  <p v-if="errorMsg" class="">
+    {{ errorMsg }}
+  </p>
+  <form @submit.prevent="signIn">
+    <div class="">
+      <label class="" for="">Email</label>
+      <input
+        class=""
+        type="email"
+        placeholder="dave@wuTangfinancial.com"
+        v-model="email"
+        id="email"
+      />
+    </div>
+    <div class="mb-4">
+      <label class="" for="">Password</label>
+
+      <div class="">
+        <input
+          class=""
+          :type="passwordFieldType"
+          onpaste="return false"
+          placeholder="************"
+          v-model="password"
+          id="password"
+        />
+        <span class="">
+          <EyeIcon
+            :class="[passwordFieldIcon]"
+            @click.prevent="hidePassword = !hidePassword"
+          />
+        </span>
+      </div>
+    </div>
+
+    <button class="" type="submit">Sign In</button>
+    <p class="">
+      <span class="">Don’t have an account? </span>
+
+      <PersonalRouter :route="route" :buttonText="buttonText" />
+    </p>
+  </form>
 </template>
 
 <script setup>
